@@ -42,6 +42,9 @@ def main():
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
     
+    nodes = 0
+    parents = []
+    
     choice = input("I or F: ")
     if choice == "I":
         nodes = int(input("Enter number of nodes: "))
