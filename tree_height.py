@@ -42,17 +42,18 @@ def main():
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
     
-    
+    global nodes
+    global parents1
     choice = input("I or F: ")
     if choice == "I":
-        global nodes = int(input("Enter number of nodes: "))
-        global parents1 = list(map(int, input("Enter elements: ").split()))
+        nodes = int(input("Enter number of nodes: "))
+        parents1 = list(map(int, input("Enter elements: ").split()))
     elif choice == "F":
         fPath = input("Enter file path: ")
         if 'a' not in fPath:
             with open(str("test/"+fPath), mode = "r") as f:
-                global nodes = int(f.readline())
-                global parents1 = list(map(int, f.readline().split()))
+                nodes = int(f.readline())
+                parents1 = list(map(int, f.readline().split()))
         else:
           print("Error")
     else:
