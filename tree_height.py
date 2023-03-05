@@ -5,18 +5,18 @@ import sys
 import threading
 import numpy
 
-def calculate(parents, i, height1):
-    if height1[i] != 0:
+def calculate(parents, i, height):
+    if height[i] != 0:
         return
     
     if parents[i] == -1:
-        height1[i] = 1
+        height[i] = 1
         return
     
-    if height1[parents[i]] == 0:
-        calculate(parents, parents[i], height1)
+    if height[parents[i]] == 0:
+        calculate(parents, parents[i], height)
 
-    height1[i] = height1[parents[i]] + 1
+    height[i] = height[parents[i]] + 1
 
 def compute_height(n, parents):
     height = [0] * n
@@ -42,7 +42,7 @@ def main():
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
     
-
+    nodes = None
     choice = input("I or F: ")
     if choice == "I":
         nodes = int(input("Enter number of nodes: "))
