@@ -46,7 +46,6 @@ def main():
     if choice == "I":
         n = int(input())
         parents = list(map(int, input().split()))
-        print(compute_height(n, parents))
         
 
     elif choice == "F":
@@ -55,8 +54,9 @@ def main():
             with open(str("test/"+fPath)) as f:
                 n = int(f.readline())
                 parents = list(map(int, f.readline().split()))
-                print(compute_height(n, parents))
-    
+                
+     
+    print(compute_height(n, parents))
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
