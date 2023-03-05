@@ -42,24 +42,20 @@ def main():
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
 
-    choice = input("I or F: ")
+    choice = input()
     if choice == "I":
-        n = int(input("Number of nodes: "))
-        parents = list(map(int, input("Parents: ").split()))
+        n = int(input())
+        parents = list(map(int, input().split()))
         print(compute_height(n, parents))
         
 
     elif choice == "F":
-        fPath = input("File path: ")
+        fPath = input()
         if 'a' not in fPath:
             with open(str(fPath)) as f:
                 n = int(f.readline())
                 parents = list(map(int, f.readline().split()))
                 print(compute_height(n, parents))
-        else:
-            print("Using letter 'a' in filepath is forbidden")
-    else:
-        print("Wrong letter! Choose I or F")
     
 
 # In Python, the default limit on recursion depth is rather low,
