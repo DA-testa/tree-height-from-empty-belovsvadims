@@ -41,6 +41,7 @@ def main():
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
+    nodes = 0
 
     choice = input()
     if choice == "I":
