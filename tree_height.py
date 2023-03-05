@@ -43,6 +43,7 @@ def main():
     # call the function and output it's result
     
     nodes = None
+    parents1 = None
     choice = input("I or F: ")
     if choice == "I":
         nodes = int(input("Enter number of nodes: "))
