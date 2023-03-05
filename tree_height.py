@@ -19,7 +19,7 @@ def calculate(parents, i, height):
     height[i] = height[parents[i]] + 1
 
 def compute_height(n, parents):
-    height = [0] * n
+    height = numpy.zeros(n)
 
     for i in range(n):
         calculate(parents, i, height)
