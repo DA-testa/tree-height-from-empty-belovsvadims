@@ -52,7 +52,7 @@ def main():
     elif choice == "F":
         fPath = input()
         if 'a' not in fPath:
-            with open(str(fPath)) as f:
+            with open(str("test/"+fPath)) as f:
                 n = int(f.readline())
                 parents = list(map(int, f.readline().split()))
                 print(compute_height(n, parents))
