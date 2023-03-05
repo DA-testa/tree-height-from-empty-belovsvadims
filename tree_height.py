@@ -50,7 +50,7 @@ def main():
     elif choice == "F":
         fPath = input("Enter file path: ")
         if 'a' not in fPath:
-            with open(str("test/"+fPath)) as f:
+            with open(str("test/"+fPath), mode = "r") as f:
                 n = int(f.readline())
                 parents = list(map(int, f.readline().split()))
         else:
