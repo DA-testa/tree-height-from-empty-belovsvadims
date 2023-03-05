@@ -5,18 +5,18 @@ import sys
 import threading
 import numpy
 
-def calculate(parents, i, height):
-    if height[i] != 0:
+def calculate(parents, i, height1):
+    if height1[i] != 0:
         return
     
     if parents[i] == -1:
-        height[i] = 1
+        height1[i] = 1
         return
     
-    if height[parents[i]] == 0:
-        calculate(parents, parents[i], height)
+    if height1[parents[i]] == 0:
+        calculate(parents, parents[i], height1)
 
-    height[i] = height[parents[i]] + 1
+    height1[i] = height1[parents[i]] + 1
 
 def compute_height(n, parents):
     height = [0] * n
