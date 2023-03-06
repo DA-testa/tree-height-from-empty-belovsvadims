@@ -8,17 +8,17 @@ import numpy
 def compute_height(n, parents):
     height = [0] * n
     def calculate(i):
-        if height[i] != 0:
-            return
-    
         if parents[i] == -1:
             height[i] = 1
             return
+        
+        if height[i] != 0:
+            return
+        else:
+          height[i] = height[parents[i]] + 1  
     
         if height[parents[i]] == 0:
             calculate(parents[i])
-
-        height[i] = height[parents[i]] + 1
 
     for i in range(n):
         calculate(i)
