@@ -39,13 +39,13 @@ def main():
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
     
-    choice = input("I or F: ")
+    choice = input()
     if choice == "I":
-        n = int(input("Enter number of nodes: "))
-        parents = list(map(int, input("Enter elements: ").split()))
+        n = int(input())
+        parents = list(map(int, input().split()))
         print(compute_height(n, parents))
     elif choice == "F":
-        fPath = input("Enter file path: ")
+        fPath = input()
         if 'a' not in fPath:
             with open(str("test/"+fPath), "r") as f:
                 n = int(f.readline())
