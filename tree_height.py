@@ -14,10 +14,8 @@ def compute_height(n, parents):
             height[i] = 1
             return
         else:
-            height[i] = height[parents[i]] + 1  
-    
-        if height[parents[i]] == 0:
-            calculate(parents[i])
+            height[i] = height[parents[i]] + 1
+        return height[i]
 
     for i in range(n):
         calculate(i)
