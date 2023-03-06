@@ -6,7 +6,7 @@ import threading
 import numpy
 
 def compute_height(n, parents):
-    height = [0] * n
+    height = numpy.zeros(n)
     def calculate(i):
         if height[i] != 0:
             return height[i]
