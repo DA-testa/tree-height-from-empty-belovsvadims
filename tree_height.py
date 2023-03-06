@@ -5,24 +5,23 @@ import sys
 import threading
 import numpy
 
-def calculate(parents, i, height):
-    if height[i] != 0:
-        return
-    
-    if parents[i] == -1:
-        height[i] = 1
-        return
-    
-    if height[parents[i]] == 0:
-        calculate(parents, parents[i], height)
-
-    height[i] = height[parents[i]] + 1
-
 def compute_height(n, parents):
-    height = numpy.zeros(n)
+    height = [0] * n
+    def calculate(i):
+        if height[i] != 0:
+            return
+    
+        if parents[i] == -1:
+            height[i] = 1
+            return
+    
+        if height[parents[i]] == 0:
+            calculate(parents[i])
+
+        height[i] = height[parents[i]] + 1
 
     for i in range(n):
-        calculate(parents, i, height)
+        calculate(i)
 
     max_height = height[0]
     for i in range(1, n):
@@ -42,23 +41,21 @@ def main():
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
     
-    global nodes = 0
-    global parents1 []
     choice = input("I or F: ")
     if choice == "I":
-        nodes = int(input("Enter number of nodes: "))
-        parents1 = list(map(int, input("Enter elements: ").split()))
+        n = int(input("Enter number of nodes: "))
+        parents = list(map(int, input("Enter elements: ").split()))
     elif choice == "F":
         fPath = input("Enter file path: ")
         if 'a' not in fPath:
-            with open(str("test/"+fPath), mode = "r") as f:
-                nodes = int(f.readline())
-                parents1 = list(map(int, f.readline().split()))
+            with open(str("test/"+fPath), "r") as f:
+                n = int(f.readline())
+                parents = list(map(int, f.readline().split()))
         else:
           print("Error")
     else:
       print("Error")
-    print(compute_height(nodes, parents1))
+    print(compute_height(n, parents))
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
