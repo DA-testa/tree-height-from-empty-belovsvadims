@@ -8,11 +8,11 @@ import numpy
 def compute_height(n, parents):
     height = [0] * n
     def calculate(i):
-        if parents[i] == -1:
-            height[i] = 1
-            return
         
         if height[i] != 0:
+            return
+        if parents[i] == -1:
+            height[i] = 1
             return
         else:
           height[i] = height[parents[i]] + 1  
@@ -45,17 +45,19 @@ def main():
     if choice == "I":
         n = int(input("Enter number of nodes: "))
         parents = list(map(int, input("Enter elements: ").split()))
+        print(compute_height(n, parents))
     elif choice == "F":
         fPath = input("Enter file path: ")
         if 'a' not in fPath:
             with open(str("test/"+fPath), "r") as f:
                 n = int(f.readline())
                 parents = list(map(int, f.readline().split()))
+                print(compute_height(n, parents))
         else:
           print("Error")
     else:
       print("Error")
-    print(compute_height(n, parents))
+    
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
