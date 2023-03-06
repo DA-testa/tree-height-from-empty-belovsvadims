@@ -9,10 +9,9 @@ def compute_height(n, parents):
     height = [0] * n
     def calculate(i):
         if height[i] != 0:
-            return
+            return tree[i]
         if parents[i] == -1:
             height[i] = 1
-            return
         else:
             height[i] = height[parents[i]] + 1
         return height[i]
