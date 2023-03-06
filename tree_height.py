@@ -18,13 +18,15 @@ def compute_height(n, parents):
 
     for i in range(n):
         calculate(i)
+    return int(max(height))
 
+    """
     max_height = height[0]
     for i in range(1, n):
         max_height = max(max_height, height[i])
 
     return max_height
-
+    """
 
 
 def main():
